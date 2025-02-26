@@ -16,9 +16,13 @@ export default function AddTask({ fetchTasks, fetchCountTasks }) {
       return;
     }
     setNewTask("");
-    await addTask(newTask);
-    await fetchTasks();
-    await fetchCountTasks();
+    try {
+      await addTask(newTask);
+      await fetchTasks();
+      await fetchCountTasks();
+    } catch (error) {
+      alert(`Ошибка: ${error.message}`);
+    }
   }
 
   return (
