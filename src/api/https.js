@@ -47,3 +47,19 @@ export async function deleteTask(id) {
     throw new Error("Не удалось удалить задачу.");
   }
 }
+
+export async function addTask(title, status=false) {
+  const response = await fetch(`https://easydev.club/api/v1/todos`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({
+      isDone: status,
+      title: title,
+    }),
+  });
+  if (!response.ok) {
+    throw new Error("Не удалось добавить задачу.");
+  }
+}

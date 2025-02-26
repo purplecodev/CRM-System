@@ -1,6 +1,4 @@
 import "./TaskStatuses.css";
-import { taskCounterByStatus } from "../../api/https.js";
-import { useState, useEffect } from "react";
 
 export default function TaskStatuses({
   onSelect,

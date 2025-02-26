@@ -1,23 +1,15 @@
 import TaskCard from "../TaskCard/TaskCard";
-import { viewTasks } from "../../api/https.js";
-import { useEffect, useState } from "react";
 
-export default function TaskContainer({ selectedTasks, fetchCountTasks }) {
-  const [shownTasks, setShownTasks] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
-  const [error, setError] = useState();
+import { useEffect } from "react";
 
-  async function fetchTasks() {
-    try {
-      setIsFetching(true);
-      const tasks = await viewTasks(selectedTasks);
-      setShownTasks(tasks);
-      setIsFetching(false);
-    } catch (error) {
-      setError({ message: error.message });
-    }
-  }
-
+export default function TaskContainer({
+  selectedTasks,
+  fetchTasks,
+  shownTasks,
+  isFetching,
+  error,
+  fetchCountTasks,
+}) {
   useEffect(() => {
     fetchTasks();
   }, [selectedTasks]);

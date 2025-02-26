@@ -1,7 +1,8 @@
 #add-task {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
   align-items: center;
-  justify-content: center;
 }
 
 #add-task input {
@@ -11,6 +12,10 @@
   width: 12rem;
   height: 2.5rem;
   margin-right: 1rem;
+}
+
+#add-task .warning {
+  color: red;
 }
 
 #add-task button {
